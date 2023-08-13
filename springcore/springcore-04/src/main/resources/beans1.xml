@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:util="http://www.springframework.org/schema/util" 
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util.xsd">
+    
+   <!--Collectins example -->
+   
+   <bean id="cust" class="com.tech2java.springcore.CustomerBean">
+	   
+	   <!--LIST  -->
+	  
+	   <property name="addressList">
+		   <list>
+			   <value>HYDERABAD</value>
+			   <ref bean="address"/>
+			   <bean class="com.tech2java.springcore.Address" p:city="HYD" p:state="TS"></bean>
+		   </list>
+	   </property>
+	  
+		<!-- SET -->
+	   <property name="addressSet">
+		   <set>
+			   <value>HYDERABAD</value>
+			   <ref bean="address"/>
+			   <bean class="com.tech2java.springcore.Address" p:city="HYD" p:state="TS"></bean>
+			</set>
+		</property>
+
+		<!-- MAP -->
+	   <property name="addressMap">
+		   <map>
+			  <entry key="addr1" value="HYD"></entry>
+			  <entry key="addr2" value-ref="address"></entry>
+			  <entry key="addr3">
+				  <bean class="com.tech2java.springcore.Address" p:city="HYDERABAD" p:state="TS"></bean>
+				</entry>
+			</map>
+		</property>
+
+		<!-- Properties -->
+	   <property name="addrProperties">
+		   <props>
+			   <prop key="admin">
+					admin@company.com</prop> 
+			   <prop key="support">support@company.com</prop>
+			</props>
+		</property>
+	   
+   </bean>
+   <bean id="address" class="com.tech2java.springcore.Address" p:city="SEC" p:state="TS"></bean>
+   
+   <!--#################################################### -->
+   <!-- util:list -->
+	<util:list id="addrList" list-class="java.util.ArrayList">
+	    <value>HYDERABAD</value>
+		<ref bean="address"/>
+		<bean class="com.tech2java.springcore.Address" p:city="HYD" p:state="TS"></bean>
+	</util:list>
+	
+	<!-- util:list -->
+	<util:set id="addrSet" set-class="java.util.HashSet">
+	    <value>HYDERABAD</value>
+		<ref bean="address"/>
+		<bean class="com.tech2java.springcore.Address" p:city="HYD" p:state="TS"></bean>
+	</util:set>
+	
+   <bean id="custUtil" class="com.tech2java.springcore.CustomerBean">
+	   <property name="addressList" ref="addrList"></property>
+	    <property name="addressSet" ref="addrSet"></property>
+   </bean>
+   
+    
+      
+</beans>    

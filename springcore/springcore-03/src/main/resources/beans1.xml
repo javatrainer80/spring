@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- Setter Injection
+    <bean id="emp" class="com.tech2java.springcore.Employee">
+		<property name="empNo" value="1000"></property>
+		<property name="empName" value="James"></property>
+		<property name="empAge" value="45"></property>
+	</bean>
+	-->
+	
+	<!-- Constructor Injection
+	<bean id="emp" class="com.tech2java.springcore.Employee">
+		<constructor-arg>
+			<value>1000</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>Ramesh</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>35</value>
+		</constructor-arg>
+	</bean>
+	-->
+	
+	<!--Spring Bean Referencing using constructor injection . -->
+	<bean id="emp" class="com.tech2java.springcore.Employee">
+		<constructor-arg>
+			<value>1000</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>Ramesh</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>35</value>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="address"/>
+		</constructor-arg>
+		
+	</bean>
+	
+	<!--Spring Bean Referencing using setter injection 
+	<bean id="emp" class="com.tech2java.springcore.Employee">
+		<property name="empNo" value="1000"></property>
+		<property name="empName" value="James"></property>
+		<property name="empAge" value="45"></property>
+		<property name="address" ref="address"></property>
+	</bean>
+	-->
+	
+	<bean id="address" class="com.tech2java.springcore.Address">
+		<property name="city" value="HYD"></property>
+		<property name="state" value="TS"></property>
+	</bean>
+	
+</beans>    

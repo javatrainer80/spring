@@ -9,23 +9,39 @@ CREATE TABLE `product` (
    PRIMARY KEY (`productId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
-# save product information
 
+# DataSource
+- DriverMmanagerDataSource(spring jdbc)
+- org.apache.commons.dbcp.BasicDataSource
+
+# Types of template classes(follows template design pattern)
+- JdbcTemplate
+- NamedParameterJdbcTemplate
+- SimpleJdbcTemplate
+
+# JdbcTemplate
+- update()
+- execute()
+- query()  
+
+- PreparedStatementSetter
+- PreparedStatementCreator
+- ResultSetExtractor
+- RowMapper
+- CRUD operations
+
+# DAO methods
 ```java
-public class ProductDaoImpl implements ProductDao{
-	
-	private JdbcTemplate jdbcTemplate;
-	
-	public ProductDaoImpl(JdbcTemplate jdbcTemplate) {
-	  this.jdbcTemplate=jdbcTemplate;
-	}
-	
-	public void saveProduct(Product product) throws SQLException {
-		jdbcTemplate.update(QueryContants.SAVE_PRODUCT,new Object[] {product.getProductId(),product.getProductName(),product.getProductDesc()} );
-		System.out.println("Product saved successfully.");
-	}
-}
+void saveProduct(Product product) throws SQLException;
+Product getProductById(Integer productId)throws SQLException;
+List<Product> getAllProducts() throws SQLException;
+String findProductNameById(Integer productId)throws SQLException;
+void deleteProductById(Integer productId) throws SQLException;
+void updateProduct(Integer productId,Product updatedProduct) throws SQLException;
 ```
+
+
+
 # Bean configurations
 ```xml
 <bean id="productDao" class="com.tech2java.springjdbc.ProductDaoImpl">

@@ -6,6 +6,12 @@
 - use getJdbcTemplate() method instead of jdbcTemplate
 - Remove jdbcTemplate config from beans.xml
 - Add dataSource to DaoImpl
+
+```xml
+<bean id="productDao" class="com.tech2java.springjdbc.ProductDaoImpl">
+    <property name="dataSource" ref="dataSource"></property>
+  </bean>
+```
 # Executing stored procedures
 
 ```sql

@@ -22,6 +22,13 @@
 - These are common for all beans.
 - init-method & destroy methods are specific to bean.
 
+```
+BeforeInitialization...empService
+Inside init method..
+AfterInitialization...empService
+```
+
+
 # Spring Bean properties Dependency checking
 
 #Spring Auto wiring Beans

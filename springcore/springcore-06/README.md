@@ -19,8 +19,7 @@
   <version>2.1.1</version>
 </dependency>
 ```
--@Resource (it uses byName autowiring)
-
+-@Resource (it uses byName Autowiring)
 
 # Summary
 

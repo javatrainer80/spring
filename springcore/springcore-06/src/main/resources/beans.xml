@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config />
+
+	<bean id="emp" class="com.tech2java.springcore.Employee">
+		<property name="empId" value="1000"></property>
+		<property name="empName" value="Ramesh"></property>
+		<!--<property name="address" ref="address"></property>-->
+	</bean>
+
+	<bean id="address1" class="com.tech2java.springcore.Address">
+		<property name="city" value="HYD"></property>
+		<property name="state" value="TS"></property>
+
+	</bean>
+
+	<bean id="address2" class="com.tech2java.springcore.Address">
+		<property name="city" value="SEC"></property>
+		<property name="state" value="TS"></property>
+
+	</bean>
+   
+   <!--JSR-250 annotations -->
+	<bean id="message" class="com.tech2java.springcore.Message">
+		<property name="msg" value="Hello1"></property>
+	</bean>
+	
+	<!--@Resource-->
+	<bean id="customer" class="com.tech2java.springcore.Customer"></bean>
+
+</beans>    

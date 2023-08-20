@@ -21,6 +21,18 @@
 ```
 -@Resource (it uses byName Autowiring)
 
+```xml
+<bean name="address1" class="com.tech2java.springcore.Address">
+  <property name="city" value="HYD"></property>
+  <property name="state" value="TS"></property>
+</bean>
+```
+
+```java
+@Resource(name = "address1")
+private Address address;
+```
+
 # Summary
 
 ```java
